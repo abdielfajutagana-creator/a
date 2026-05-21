@@ -606,8 +606,10 @@ nav{
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE PORTFOLIO
    ========================= */
+
+/* TABLET */
 
 @media(max-width:1100px){
 
@@ -615,39 +617,52 @@ nav{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .project-card:nth-child(4),
-  .project-card:nth-child(5){
+  .portfolio-grid .project-card:nth-child(1),
+  .portfolio-grid .project-card:nth-child(2),
+  .portfolio-grid .project-card:nth-child(3),
+  .portfolio-grid .project-card:nth-child(4),
+  .portfolio-grid .project-card:nth-child(5){
     grid-column:auto;
   }
+
 }
 
-/* =========================
-   MOBILE CAROUSEL (FIXED)
-   ========================= */
+/* MOBILE SCROLL */
 
 @media(max-width:768px){
 
   .portfolio-grid{
     display:flex;
-    gap:18px;
+
     overflow-x:auto;
+    overflow-y:hidden;
+
+    gap:18px;
+
     padding-bottom:20px;
+
     scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;
   }
 
   .portfolio-grid::-webkit-scrollbar{
-    display:none;
+    height:8px;
+  }
+
+  .portfolio-grid::-webkit-scrollbar-thumb{
+    background:#aa8d79;
+    border-radius:20px;
   }
 
   .project-card{
     flex:0 0 85%;
-    height:280px;
-    scroll-snap-align:center;
-    scroll-snap-stop:always;
 
-    /* ✅ FIX ADDED HERE */
-    min-width:0;
+    min-width:85%;
+
+    height:280px;
+
+    scroll-snap-align:center;
+
     flex-shrink:0;
   }
 
@@ -658,9 +673,6 @@ nav{
     display:block;
   }
 
-  .portfolio-header h2{
-    font-size:2.8rem;
-  }
 }
 
 /* =========================
