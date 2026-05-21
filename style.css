@@ -523,6 +523,7 @@ nav{
   display:grid;
   grid-template-columns:repeat(6,1fr);
   gap:25px;
+  overflow:visible;
 }
 
 /* TOP ROW (1 2 3) */
@@ -618,8 +619,11 @@ nav{
   .project-card:nth-child(5){
     grid-column:auto;
   }
-
 }
+
+/* =========================
+   MOBILE CAROUSEL (FIXED)
+   ========================= */
 
 @media(max-width:768px){
 
@@ -629,7 +633,7 @@ nav{
     overflow-x:auto;
     padding-bottom:20px;
     scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling:touch;
   }
 
   .portfolio-grid::-webkit-scrollbar{
@@ -640,15 +644,18 @@ nav{
     flex:0 0 85%;
     height:280px;
     scroll-snap-align:center;
-    border-radius:30px;
-    scroll-snap-stop: always;
+    scroll-snap-stop:always;
 
+    /* ✅ FIX ADDED HERE */
+    min-width:0;
+    flex-shrink:0;
   }
 
   .project-card img{
     width:100%;
     height:100%;
     object-fit:cover;
+    display:block;
   }
 
   .portfolio-header h2{
